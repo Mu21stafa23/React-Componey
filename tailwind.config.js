@@ -4,18 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        forest: { DEFAULT: '#0e4a3b', deep: '#0a382d' },
-        sage: '#f3f6f1',
-        leaf: '#dbe8d9',
-        line: '#c3d1c3',
-        ink: '#17201c',
-        mute: '#55635b',
-        flame: { DEFAULT: '#d8431f', deep: '#b5340f', soft: '#ffe3da' },
-        moon: '#f4edb8',
+        // The site's own blue for headings and links, between Tailwind's blue and indigo.
+        brand: { DEFAULT: '#2f4ac6', deep: '#22379c', soft: '#e8ecfb' },
+        night: { DEFAULT: '#111827', soft: '#1f2937' },
       },
       fontFamily: {
-        display: ['Changa', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        body: ['"Readex Pro"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"Hanken Grotesk"', '"IBM Plex Sans Arabic"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        arabic: ['"IBM Plex Sans Arabic"', '"Hanken Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },
   },
