@@ -6,7 +6,7 @@ import { useT, useTo } from '../lib/i18n.jsx'
 export default function Privacy() {
   const t = useT()
   const to = useTo()
-  useTitle(t('Privacy policy | ECO', 'سياسة الخصوصية | ECO'))
+  useTitle(t(`Privacy policy | ${company.name.en}`, `سياسة الخصوصية | ${company.name.ar}`))
   const parts = [
     {
       title: t('What the contact form asks for', 'ما يطلبه نموذج التواصل'),
@@ -14,7 +14,7 @@ export default function Privacy() {
     },
     {
       title: t('What happens to it', 'ماذا يحدث لها'),
-      text: t('ECO is a demo company. The form checks what you typed and then stops: your details stay in your browser, are not sent anywhere and are gone when you close the page.', 'ECO شركة افتراضية للعرض. النموذج يتحقق مما كتبته ثم يتوقف: بياناتك تبقى في متصفحك، لا تُرسل إلى أي مكان وتختفي عند إغلاق الصفحة.'),
+      text: t(`${company.name.en} is a demo company. The form checks what you typed and then stops: your details stay in your browser, are not sent anywhere and are gone when you close the page.`, `${company.name.ar} شركة افتراضية للعرض. النموذج يتحقق مما كتبته ثم يتوقف: بياناتك تبقى في متصفحك، لا تُرسل إلى أي مكان وتختفي عند إغلاق الصفحة.`),
     },
     {
       title: t('Questions', 'للاستفسار'),

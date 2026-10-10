@@ -10,10 +10,10 @@ export default function Services() {
     <section id="services" className="bg-slate-100 pb-20 sm:pb-24" aria-labelledby="services-title">
       <div className="wrap">
         <div className="mx-auto max-w-3xl border-t border-slate-300 pt-16 text-center">
-          <h2 id="services-title" className="text-2xl font-bold tracking-tight text-brand sm:text-3xl">
-            {t('OUR SERVICES', 'خدماتنا')}
+          <h2 id="services-title" className="text-3xl font-bold tracking-tight text-brand sm:text-4xl">
+            {t('Our services', 'خدماتنا')}
           </h2>
-          <p className="mt-3 text-lg text-gray-700">{t('Explore the core services we offer to help businesses succeed in today’s competitive environment.', 'تعرّف على خدماتنا الأساسية التي تساعد الشركات على النجاح في سوق شديد المنافسة.')}</p>
+          <p className="mt-3 text-lg text-gray-700">{t('Three services that each work on their own, and work better together.', 'ثلاث خدمات تعمل كلٌّ منها وحدها، وتعمل أفضل معاً.')}</p>
         </div>
         <ul className="mt-10 grid gap-6 md:grid-cols-3">
           {services.map((service) => (

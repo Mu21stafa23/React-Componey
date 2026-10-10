@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
-import { useT, useTo } from '../lib/i18n.jsx'
+import { company } from '../lib/company.js'
+import { useLang, useT, useTo } from '../lib/i18n.jsx'
 import { useSectionLinks } from './Header.jsx'
 import { Logo } from './icons.jsx'
 
 export default function Footer() {
+  const lang = useLang()
   const t = useT()
   const to = useTo()
   const links = [...useSectionLinks(), { to: to('/privacy'), label: t('Privacy policy', 'سياسة الخصوصية') }]
@@ -11,8 +13,8 @@ export default function Footer() {
     <footer className="bg-night-soft text-gray-300">
       <div className="wrap flex flex-col gap-8 py-12 md:flex-row md:items-start md:justify-between">
         <div className="max-w-sm">
-          <Logo className="!text-white" />
-          <p className="mt-3 text-gray-400">{t('Consulting, product development and digital marketing for companies that want to grow with their data.', 'استشارات وتطوير منتجات وتسويق رقمي للشركات التي تريد أن تنمو ببياناتها.')}</p>
+          <Logo name={company.name[lang]} className="!text-white" />
+          <p className="mt-3 text-gray-400">{t('Data consulting, product development and digital marketing for online businesses, from one team.', 'استشارات بيانات وتطوير منتجات وتسويق رقمي للأعمال على الإنترنت، من فريق واحد.')}</p>
         </div>
         <nav aria-label={t('Footer', 'روابط أسفل الصفحة')}>
           <ul className="grid grid-cols-2 gap-x-10 sm:grid-cols-3">
@@ -29,7 +31,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <p className="wrap py-6 text-sm text-gray-400">
           <span dir="ltr" className="inline-block">
-            © {new Date().getFullYear()} ECO.
+            © {new Date().getFullYear()} {company.name.en}.
           </span>{' '}
           {t('A demo company website: the company, its numbers and its contact details are examples.', 'موقع تجريبي لشركة افتراضية: الشركة وأرقامها وبيانات التواصل أمثلة للعرض.')}
         </p>

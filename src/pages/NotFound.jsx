@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
+import { company } from '../lib/company.js'
 import { useTitle } from '../lib/hooks.js'
 import { useT, useTo } from '../lib/i18n.jsx'
 
 export default function NotFound() {
   const t = useT()
   const to = useTo()
-  useTitle(t('Page not found | ECO', 'الصفحة غير موجودة | ECO'))
+  useTitle(t(`Page not found | ${company.name.en}`, `الصفحة غير موجودة | ${company.name.ar}`))
   return (
     <div className="wrap py-24 text-center">
       <h1 className="text-4xl font-bold tracking-tight text-brand">{t('This page does not exist', 'هذه الصفحة غير موجودة')}</h1>

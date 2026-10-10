@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { useOtherLanguage, useT, useTo } from '../lib/i18n.jsx'
+import { company } from '../lib/company.js'
+import { useLang, useOtherLanguage, useT, useTo } from '../lib/i18n.jsx'
 import { Close, Logo, Menu } from './icons.jsx'
 
 /** The links to the sections of the home page, shared by the header and the footer. */
@@ -8,7 +9,7 @@ export function useSectionLinks() {
   const t = useT()
   const to = useTo()
   return [
-    { to: `${to('/')}#work`, label: t('Work with us', 'اعمل معنا') },
+    { to: `${to('/')}#work`, label: t('Why us', 'لماذا نحن') },
     { to: `${to('/')}#services`, label: t('Services', 'الخدمات') },
     { to: `${to('/')}#about`, label: t('About', 'عن الشركة') },
     { to: `${to('/')}#contact`, label: t('Contact', 'تواصل') },
@@ -16,6 +17,7 @@ export function useSectionLinks() {
 }
 
 export default function Header() {
+  const lang = useLang()
   const t = useT()
   const to = useTo()
   const other = useOtherLanguage()
@@ -37,8 +39,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-30 border-b border-gray-200/70 bg-white/85 backdrop-blur">
       <div className="wrap flex h-16 items-center justify-between gap-4">
-        <Link to={to('/')} className="flex min-h-11 items-center rounded-md" aria-label={t('ECO, home page', 'ECO، الصفحة الرئيسية')}>
-          <Logo />
+        <Link to={to('/')} className="flex min-h-11 items-center rounded-md" aria-label={t(`${company.name.en}, home page`, `${company.name.ar}، الصفحة الرئيسية`)}>
+          <Logo name={company.name[lang]} />
         </Link>
         <nav aria-label={t('Main', 'القائمة الرئيسية')} className="hidden items-center gap-1 md:flex">
           {links.map((link) => (

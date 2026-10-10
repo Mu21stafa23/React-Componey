@@ -1,16 +1,18 @@
-# ECO Business Website
+# Moon Orbit, a company website
 
-A company website for ECO, an invented business services company: who they are, what they offer, their numbers and a way to reach them. In English and Arabic.
+A company website for Moon Orbit, an invented firm that offers data consulting, product development and digital marketing: who they are, what they offer, their numbers and a way to reach them. In English and Arabic.
 
-ECO is a demo. The company, its numbers and its contact details are examples, and the contact form sends nothing.
+This is the improved version of the earlier ECO business website: the same idea and the same sections, with a new name and logo, rewritten text and a working contact form.
+
+Moon Orbit is a demo. The company, its numbers and its contact details are examples, and the contact form sends nothing.
 
 ## What is on the page
 
 - **Hero** with the company's promise and a button that takes you to the contact form.
-- **Work with us:** the three ways the company helps (consulting, development, marketing).
+- **Why companies work with us:** three things that set the way the company works.
 - **Our services:** each service with a picture and a short list of what the client receives.
 - **Numbers:** year founded, employees, countries and offices, counted up when they scroll into view.
-- **About ECO:** a short story of the company and its five offices.
+- **About Moon Orbit:** a short story of the company and its five offices.
 - **Contact:** a form with each problem explained beside its field, a switch to agree to the privacy policy, and the phone and e-mail below it.
 - **Privacy policy** on its own page.
 - **Arabic** at `/ar`, right to left, with a switch in the header that keeps you on the same page.

@@ -12,7 +12,7 @@ const problemText = {
   lastName: { en: 'Write your last name.', ar: 'اكتب اسم العائلة.' },
   emailMissing: { en: 'Write an e-mail address for our reply.', ar: 'اكتب بريداً إلكترونياً ليصلك ردّنا.' },
   emailShape: { en: 'This address looks incomplete. It should read like name@example.com.', ar: 'هذا العنوان يبدو ناقصاً. الشكل الصحيح مثل name@example.com.' },
-  message: { en: 'Tell us in a sentence or two how we can help.', ar: 'اكتب في جملة أو جملتين كيف نساعدك.' },
+  message: { en: 'Tell us in a sentence or two about your business.', ar: 'اكتب في جملة أو جملتين عن عملك.' },
   agree: { en: 'Turn this on to agree before sending.', ar: 'فعّل هذا الخيار للموافقة قبل الإرسال.' },
 }
 
@@ -64,8 +64,9 @@ export default function Contact() {
         <h2 id="contact-title" className="text-center text-4xl font-bold tracking-tight text-brand sm:text-5xl">
           {t('Contact us', 'تواصل معنا')}
         </h2>
+        <p className="mx-auto mt-4 max-w-xl text-center text-lg text-gray-700">{t('Write a few lines about your business. We reply within one working day.', 'اكتب لنا سطرين عن عملك، ونرد خلال يوم عمل واحد.')}</p>
 
-        <div className="mx-auto mt-12 max-w-xl">
+        <div className="mx-auto mt-10 max-w-xl">
           {sent ? (
             <div role="status" className="rounded-lg bg-slate-100 p-6 text-center sm:p-8">
               <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-indigo-600 text-white">
@@ -74,8 +75,8 @@ export default function Contact() {
               <h3 className="mt-4 text-2xl font-semibold text-gray-900">{t(`Thank you, ${values.firstName.trim()}.`, `شكراً ${values.firstName.trim()}.`)}</h3>
               <p className="mt-2 text-gray-700">
                 {t(
-                  'Your message is complete. ECO is a demo company, so nothing was sent and nobody will reply.',
-                  'رسالتك مكتملة. ECO شركة افتراضية للعرض، فلم يُرسَل شيء ولن يصلك رد.',
+                  `Your message is complete. ${company.name.en} is a demo company, so nothing was sent and nobody will reply.`,
+                  `رسالتك مكتملة. ${company.name.ar} شركة افتراضية للعرض، فلم يُرسَل شيء ولن يصلك رد.`,
                 )}
               </p>
               <button
@@ -151,13 +152,13 @@ export default function Contact() {
               </div>
 
               <button type="submit" className="btn mt-6 w-full">
-                {t("Let's talk", 'لنتحدث')}
+                {t('Send message', 'أرسل الرسالة')}
               </button>
             </form>
           )}
 
           <div className="mt-12 text-center">
-            <p className="text-lg text-gray-700">{t('Have any questions? Reach us at:', 'عندك سؤال؟ تواصل معنا عبر:')}</p>
+            <p className="text-lg text-gray-700">{t('Or reach us directly:', 'أو تواصل معنا مباشرة:')}</p>
             <p className="mt-3 text-lg font-medium text-gray-900">
               {t('Phone: ', 'الهاتف: ')}
               <a href={company.phone.href} dir="ltr" className="inline-block py-1.5 text-indigo-600 underline-offset-4 hover:underline">

@@ -9,18 +9,18 @@ export default function About() {
       <div className="wrap grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-16">
         <div>
           <h2 id="about-title" className="section-title">
-            {t('About ECO', 'عن ECO')}
+            {t(`About ${company.name.en}`, `عن ${company.name.ar}`)}
           </h2>
           <p className="mt-5 text-lg text-gray-700">
             {t(
-              `ECO began in ${company.founded} as a small team that helped online shops read their own sales figures. The work has grown since, and the idea has stayed the same: a business decides better when it can see what its data says.`,
-              `بدأت ECO عام ${company.founded} فريقاً صغيراً يساعد المتاجر الإلكترونية على قراءة أرقام مبيعاتها. كبر العمل منذ ذلك الحين وبقيت الفكرة نفسها: الشركة تقرّر أفضل حين ترى ما تقوله بياناتها.`,
+              `${company.name.en} began in ${company.founded} as four people helping online shops read their own sales figures. The team is larger now and the idea has not changed: a business decides better when it can see what its data says.`,
+              `بدأت ${company.name.ar} عام ${company.founded} بأربعة أشخاص يساعدون المتاجر الإلكترونية على قراءة أرقام مبيعاتها. كبر الفريق وبقيت الفكرة نفسها: الشركة تقرّر أفضل حين ترى ما تقوله بياناتها.`,
             )}
           </p>
           <p className="mt-4 text-lg text-gray-700">
             {t(
-              'Today our consultants, engineers and marketers work as one team, so the advice we give is advice we can also build and measure.',
-              'اليوم يعمل مستشارونا ومهندسونا ومسوّقونا فريقاً واحداً، فالنصيحة التي نقدّمها نستطيع أيضاً أن نبنيها ونقيس أثرها.',
+              'The name describes how we like to work: close to the client, on a steady course, and back every week with something to show.',
+              'والاسم يصف طريقتنا في العمل: قريبون من العميل، على مسار ثابت، ونعود كل أسبوع بشيء نعرضه.',
             )}
           </p>
         </div>

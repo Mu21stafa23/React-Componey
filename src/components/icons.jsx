@@ -44,19 +44,27 @@ export const MapIcon = (props) => (
   </svg>
 )
 
-/** The company's mark: three orbits around a point. */
-export function Logo({ className = '' }) {
+/** The company's mark: a crescent moon with one orbit around it. */
+export function Mark({ size = 36 }) {
   return (
-    <span className={`inline-flex items-center gap-2 text-xl font-semibold tracking-tight text-brand ${className}`}>
-      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true">
-        <g fill="none" stroke="#38bdf8" strokeWidth="1.5">
-          <ellipse cx="16" cy="16" rx="13" ry="5" />
-          <ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(60 16 16)" />
-          <ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(120 16 16)" />
-        </g>
-        <circle cx="16" cy="16" r="2.6" fill="#4f46e5" />
-      </svg>
-      ECO
+    <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden="true">
+      <g transform="rotate(-22 20 20)" fill="none" strokeWidth="2" strokeLinecap="round">
+        <ellipse cx="20" cy="20" rx="18" ry="6.5" stroke="#38bdf8" />
+      </g>
+      <path d="M22.4 8.3a12 12 0 1 0 9.6 15.900A9.8 9.8 0 0 1 22.4 8.300z" fill="currentColor" />
+      <g transform="rotate(-22 20 20)" fill="none" strokeWidth="2" strokeLinecap="round">
+        <path d="M2 20a18 6.5 0 0 0 36 0" stroke="#38bdf8" />
+        <circle cx="38" cy="20" r="2.6" fill="#f59e0b" />
+      </g>
+    </svg>
+  )
+}
+
+export function Logo({ name, className = '' }) {
+  return (
+    <span className={`inline-flex items-center gap-2 text-xl font-bold tracking-tight text-brand ${className}`}>
+      <Mark />
+      {name}
     </span>
   )
 }

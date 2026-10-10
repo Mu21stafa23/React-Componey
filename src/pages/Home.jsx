@@ -1,3 +1,4 @@
+import { company } from '../lib/company.js'
 import { useTitle } from '../lib/hooks.js'
 import { useT } from '../lib/i18n.jsx'
 import About from '../sections/About.jsx'
@@ -9,7 +10,7 @@ import WorkWithUs from '../sections/WorkWithUs.jsx'
 
 export default function Home() {
   const t = useT()
-  useTitle(t('ECO | Data to Enrich Your Online Business', 'ECO | بيانات تُثري أعمالك على الإنترنت'))
+  useTitle(t(`${company.name.en} | ${company.tagline.en}`, `${company.name.ar} | ${company.tagline.ar}`))
   return (
     <>
       <Hero />

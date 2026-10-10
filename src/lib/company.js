@@ -1,62 +1,84 @@
 // Everything the site says about the company, in one place and in both languages.
-// ECO is an invented company: the numbers, offices and contact details are examples.
+// Moon Orbit is an invented company: the numbers, offices and contact details are examples.
 
 const tx = (en, ar) => ({ en, ar })
 
 export const company = {
-  name: 'ECO',
+  name: tx('Moon Orbit', 'مون أوربت'),
+  tagline: tx('Data, product and marketing for online businesses', 'بيانات ومنتجات وتسويق للأعمال على الإنترنت'),
   founded: 2010,
-  phone: { label: '+1 (555) 010-0199', href: 'tel:+15550100199' },
-  email: 'contact@eco-business.example',
+  phone: { label: '+966 11 555 0142', href: 'tel:+966115550142' },
+  email: 'hello@moonorbit.example',
 }
 
-// "Work with us": the three ways the company helps.
-export const offers = [
+// "Why work with us": three things that set the way the company works.
+export const reasons = [
   {
-    id: 'consulting',
-    title: tx('Consulting', 'الاستشارات'),
-    text: tx('Our expert consultants provide industry-leading advice to help optimize your processes and strategies.', 'يقدّم مستشارونا خبرة عملية تساعدك على تحسين إجراءاتك واستراتيجياتك.'),
+    id: 'numbers',
+    title: tx('We start from your numbers', 'نبدأ من أرقامك'),
+    text: tx(
+      'Before we suggest anything, we look at your sales, visits and costs. Every recommendation points to the figure behind it.',
+      'قبل أن نقترح شيئاً ننظر في مبيعاتك وزياراتك وتكاليفك. وكل توصية نقدّمها تشير إلى الرقم الذي بُنيت عليه.',
+    ),
   },
   {
-    id: 'development',
-    title: tx('Development', 'التطوير'),
-    text: tx('We create custom software solutions tailored to your unique business needs, ensuring scalability and efficiency.', 'نبني حلولاً برمجية مصممة لاحتياجات عملك، قابلة للتوسّع وعالية الكفاءة.'),
+    id: 'build',
+    title: tx('We build what we recommend', 'نبني ما ننصح به'),
+    text: tx(
+      'The people who advise you sit beside the people who write the code, so a plan does not stop at a slide deck.',
+      'من ينصحك يجلس بجانب من يكتب الكود، فلا تنتهي الخطة عند عرض تقديمي.',
+    ),
   },
   {
-    id: 'marketing',
-    title: tx('Marketing', 'التسويق'),
-    text: tx('Our digital marketing strategies will increase your online presence, drive engagement, and boost your business growth.', 'استراتيجياتنا في التسويق الرقمي تزيد حضورك على الإنترنت وتفاعل عملائك ونموّ أعمالك.'),
+    id: 'weekly',
+    title: tx('You see progress every week', 'ترى التقدّم كل أسبوع'),
+    text: tx(
+      'A short report each Thursday: what was done, what it cost and what moved. No surprises at the end of the month.',
+      'تقرير قصير كل خميس: ما أُنجز، وكم كلّف، وما الذي تغيّر. بلا مفاجآت في آخر الشهر.',
+    ),
   },
 ]
 
-// "Our services": the same three areas, with what a client actually receives.
+// The three services, each with what a client actually receives.
 export const services = [
   {
     id: 'consulting',
-    title: tx('Consulting Services', 'الخدمات الاستشارية'),
-    text: tx('Tailored business solutions for your company.', 'حلول أعمال مصممة لشركتك.'),
-    includes: [tx('A review of how your business uses its data', 'مراجعة لطريقة استخدام شركتك لبياناتها'), tx('A dashboard of the numbers that matter', 'لوحة للأرقام التي تهمّك'), tx('A plan for the next twelve months', 'خطة للاثني عشر شهراً القادمة')],
+    title: tx('Data consulting', 'استشارات البيانات'),
+    text: tx('We find where your business gains and loses money, and what to do about it first.', 'نعرف أين تكسب شركتك وأين تخسر، وبماذا تبدأ.'),
+    includes: [
+      tx('A review of your sales, marketing and operations data', 'مراجعة لبيانات المبيعات والتسويق والتشغيل'),
+      tx('One dashboard for the numbers you check every morning', 'لوحة واحدة للأرقام التي تراجعها كل صباح'),
+      tx('A twelve-month plan with costs and priorities', 'خطة لاثني عشر شهراً بالتكاليف والأولويات'),
+    ],
   },
   {
     id: 'product',
-    title: tx('Product Development', 'تطوير المنتجات'),
-    text: tx('Creating innovative products that drive growth.', 'نبتكر منتجات تدفع النمو.'),
-    includes: [tx('Design and prototype in the first month', 'تصميم ونموذج أولي في الشهر الأول'), tx('Web and mobile apps built to scale', 'تطبيقات ويب وجوال قابلة للتوسّع'), tx('Support after launch', 'دعم بعد الإطلاق')],
+    title: tx('Product development', 'تطوير المنتجات'),
+    text: tx('Websites, stores and apps designed around the way your customers buy.', 'مواقع ومتاجر وتطبيقات مصممة على طريقة شراء عملائك.'),
+    includes: [
+      tx('A prototype you can click through in the first three weeks', 'نموذج تجريبي تتصفحه في أول ثلاثة أسابيع'),
+      tx('Web and mobile apps that stay fast as you grow', 'تطبيقات ويب وجوال تبقى سريعة مع نموّك'),
+      tx('Ninety days of support after launch', 'تسعون يوماً من الدعم بعد الإطلاق'),
+    ],
   },
   {
     id: 'marketing',
-    title: tx('Digital Marketing', 'التسويق الرقمي'),
-    text: tx('Comprehensive strategies to boost your online presence.', 'استراتيجيات شاملة لتعزيز حضورك على الإنترنت.'),
-    includes: [tx('Search and social media campaigns', 'حملات على محركات البحث ووسائل التواصل'), tx('Content written for your customers', 'محتوى مكتوب لعملائك'), tx('A monthly report in plain numbers', 'تقرير شهري بأرقام واضحة')],
+    title: tx('Digital marketing', 'التسويق الرقمي'),
+    text: tx('Campaigns measured by sales, not by likes.', 'حملات تُقاس بالمبيعات لا بالإعجابات.'),
+    includes: [
+      tx('Search and social media campaigns', 'حملات على محركات البحث ووسائل التواصل'),
+      tx('Content written for your customers, in Arabic and English', 'محتوى مكتوب لعملائك بالعربية والإنجليزية'),
+      tx('A monthly report: what was spent and what it brought back', 'تقرير شهري: كم صُرف وكم عاد'),
+    ],
   },
 ]
 
+export const offices = [tx('Riyadh', 'الرياض'), tx('Dubai', 'دبي'), tx('Cairo', 'القاهرة'), tx('London', 'لندن'), tx('Singapore', 'سنغافورة')]
+
 // `count` numbers are counted up on screen; the founding year is shown as it is.
 export const stats = [
-  { id: 'founded', value: company.founded, count: false, suffix: '', label: tx('Founded', 'سنة التأسيس') },
-  { id: 'employees', value: 500, count: true, suffix: '+', label: tx('Employees', 'موظف') },
-  { id: 'countries', value: 120, count: true, suffix: '+', label: tx('Countries', 'دولة') },
-  { id: 'offices', value: 5, count: true, suffix: '', label: tx('Offices', 'مكاتب') },
+  { id: 'founded', value: company.founded, count: false, label: tx('Founded', 'سنة التأسيس') },
+  { id: 'team', value: 240, count: true, label: tx('People on the team', 'عضواً في الفريق') },
+  { id: 'countries', value: 32, count: true, label: tx('Countries we work in', 'دولة نعمل فيها') },
+  { id: 'offices', value: offices.length, count: true, label: tx('Offices', 'مكاتب') },
 ]
-
-export const offices = [tx('Riyadh', 'الرياض'), tx('Dubai', 'دبي'), tx('London', 'لندن'), tx('Singapore', 'سنغافورة'), tx('Toronto', 'تورنتو')]
