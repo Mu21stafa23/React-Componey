@@ -2,6 +2,10 @@
 
 A company website for Moon Orbit, an invented firm that offers data consulting, product development and digital marketing: who they are, what they offer, their numbers and a way to reach them. In English and Arabic.
 
+**Live demo:** https://moon-orbit-sa.vercel.app ([العربية](https://moon-orbit-sa.vercel.app/ar))
+
+![The home page: the headline, a short description and two buttons](./docs/home.jpg)
+
 This is the improved version of the earlier ECO business website: the same idea and the same sections, with a new name and logo, rewritten text and a working contact form.
 
 Moon Orbit is a demo. The company, its numbers and its contact details are examples, and the contact form sends nothing.
@@ -16,6 +20,10 @@ Moon Orbit is a demo. The company, its numbers and its contact details are examp
 - **Contact:** a form with each problem explained beside its field, a switch to agree to the privacy policy, and the phone and e-mail below it.
 - **Privacy policy** on its own page.
 - **Arabic** at `/ar`, right to left, with a switch in the header that keeps you on the same page.
+
+![The three services, each with a picture and what the client receives](./docs/services.jpg)
+
+![The same page in Arabic](./docs/arabic.jpg)
 
 ## How it is built
 
