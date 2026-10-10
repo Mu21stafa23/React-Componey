@@ -7,32 +7,53 @@ export function useTitle(title) {
   }, [title])
 }
 
-/**
- * Follows a number as it changes, moving to the new value over a third of a second, so a
- * total that jumps is seen to change. People who asked for less motion get the value at once.
- */
-export function useAnimated(value) {
-  const [shown, setShown] = useState(value)
-  const current = useRef(value)
+/** True once the element has scrolled into view. It stays true afterwards. */
+export function useSeen() {
+  const ref = useRef(null)
+  const [seen, setSeen] = useState(false)
 
   useEffect(() => {
-    const still = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (still || current.current === value) {
-      current.current = value
-      setShown(value)
+    const element = ref.current
+    if (!element || seen) return undefined
+    if (typeof IntersectionObserver !== 'function') {
+      setSeen(true)
       return undefined
     }
-    const begin = current.current
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) setSeen(true)
+      },
+      { threshold: 0.3 },
+    )
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [seen])
+
+  return [ref, seen]
+}
+
+/**
+ * Counts from zero up to `target` once `running` is true, over about a second.
+ * People who asked for less motion get the final number at once.
+ */
+export function useCountUp(target, running) {
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    if (!running) return undefined
+    const still = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (still) {
+      setValue(target)
+      return undefined
+    }
     const started = performance.now()
     let frame = requestAnimationFrame(function step(now) {
-      const progress = Math.min(1, (now - started) / 320)
-      const eased = 1 - (1 - progress) ** 3
-      current.current = begin + (value - begin) * eased
-      setShown(current.current)
+      const progress = Math.min(1, (now - started) / 1200)
+      setValue(Math.round(target * (1 - (1 - progress) ** 3)))
       if (progress < 1) frame = requestAnimationFrame(step)
     })
     return () => cancelAnimationFrame(frame)
-  }, [value])
+  }, [target, running])
 
-  return shown
+  return value
 }

@@ -4,96 +4,53 @@
 
 @layer base {
   html {
+    scroll-behavior: smooth;
     scroll-padding-top: 5rem;
   }
 
-  body {
-    @apply bg-sage font-body text-ink antialiased;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
-  h1,
-  h2,
-  h3 {
-    @apply font-display;
+  body {
+    @apply bg-white font-sans text-gray-900 antialiased;
+  }
+
+  :lang(ar) body {
+    @apply font-arabic;
   }
 
   /* Arabic letters need more room above and below than Latin ones. */
   :lang(ar) :is(h1, h2, h3) {
-    line-height: 1.45;
+    line-height: 1.4;
     letter-spacing: 0;
   }
 
   :focus-visible {
-    @apply outline outline-[3px] outline-offset-2 outline-flame;
+    @apply outline outline-[3px] outline-offset-2 outline-indigo-600;
   }
 }
 
 @layer components {
   .wrap {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+    @apply mx-auto w-full max-w-6xl px-6 lg:px-8;
   }
 
   .btn {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-2.5 text-base font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
-  }
-
-  .btn-flame {
-    @apply btn bg-flame text-white hover:bg-flame-deep;
-  }
-
-  .btn-forest {
-    @apply btn bg-forest text-white hover:bg-forest-deep;
-  }
-
-  .btn-line {
-    @apply btn border border-forest bg-transparent text-forest hover:bg-leaf;
-  }
-
-  .link {
-    @apply font-semibold text-forest underline decoration-2 underline-offset-4 hover:text-flame-deep;
+    @apply inline-flex min-h-12 items-center justify-center rounded-md bg-indigo-600 px-6 py-2.5 text-base font-semibold text-white shadow-md transition-colors hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60;
   }
 
   .field {
-    @apply block min-h-12 w-full rounded-xl border border-line bg-white px-4 py-2.5 text-base text-ink placeholder:text-mute;
+    @apply block min-h-12 w-full rounded-md border border-gray-300 bg-white px-3.5 py-2.5 text-base text-gray-900 shadow-sm placeholder:text-gray-400;
   }
 
   .field-invalid {
-    @apply border-flame;
+    @apply border-red-600;
   }
 
-  .soft {
-    @apply text-mute;
+  .section-title {
+    @apply text-3xl font-bold tracking-tight text-brand sm:text-4xl;
   }
-
-  /* Figures line up in columns and read left to right in both languages. */
-  .figure {
-    @apply font-display tabular-nums;
-    direction: ltr;
-    unicode-bidi: isolate;
-  }
-}
-
-/* The torn edge along the bottom of the estimate slip. */
-.slip-edge {
-  height: 14px;
-  background: linear-gradient(135deg, #fff 50%, transparent 50%) 0 0 / 14px 14px repeat-x, linear-gradient(225deg, #fff 50%, transparent 50%) 0 0 / 14px 14px repeat-x;
-}
-
-@media print {
-  body {
-    background: #fff;
-  }
-
-  .no-print {
-    display: none !important;
-  }
-
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-}
-
-@page {
-  margin: 14mm;
 }

@@ -1,50 +1,32 @@
-# Moon Studio (مون ستوديو)
+# ECO Business Website
 
-A website for a small digital studio, in Arabic and English, built around one idea: the visitor can work out what a project costs before talking to anyone. Pick the services, answer a few questions, and an estimate adds itself up with a price range and a timeline.
+A company website for ECO, an invented business services company: who they are, what they offer, their numbers and a way to reach them. In English and Arabic.
 
-**Live demo:** https://moon-studio-sa.vercel.app ([English](https://moon-studio-sa.vercel.app/en))
+ECO is a demo. The company, its numbers and its contact details are examples, and the contact form sends nothing.
 
-Moon Studio is a demo. The clients, results and prices are examples, and the contact form sends nothing.
+## What is on the page
 
-![The home page in Arabic: pick what you need and the estimate slip totals up beside it](./docs/home.jpg)
-
-## What it does
-
-### The estimator
-
-- Six services, each with its own questions: number of pages or products, languages, payment, reports and so on.
-- The estimate updates as you tick: every line with its price, a likely total as a range, the time to deliver, and the monthly cost of care after launch.
-- Two extras apply to the whole project: rush delivery (25% more, about three quarters of the time) and monthly care.
-- **The estimate lives in the address bar.** Reload the page, bookmark it or send the link to a partner, and the same estimate opens. A link with unknown or mistyped parts still opens with whatever it can read.
-- **Print** gives a clean one-page estimate without the rest of the site.
-- **Send as a request** carries the estimate to the contact page, where it is shown beside the form.
-
-![The estimator in English](./docs/estimate.jpg)
-
-### The rest of the site
-
-- **Services and prices:** what each service includes and what every option adds. The page and the estimator read the same price list, so they cannot disagree.
-- **Work:** eight case studies that can be filtered by service and by sector, with the filters kept in the address. Each one ends with what a project like it would cost, and a link that opens the estimator already filled in.
-- **Contact:** a checked form (name, e-mail, Saudi mobile number written with Arabic or Western digits), with each problem explained beside its field.
-- **Two languages:** Arabic at `/` and English at `/en`, right-to-left and left-to-right, with a switch that keeps you on the same page with the same estimate.
-
-![The work page](./docs/work.jpg)
+- **Hero** with the company's promise and a button that takes you to the contact form.
+- **Work with us:** the three ways the company helps (consulting, development, marketing).
+- **Our services:** each service with a picture and a short list of what the client receives.
+- **Numbers:** year founded, employees, countries and offices, counted up when they scroll into view.
+- **About ECO:** a short story of the company and its five offices.
+- **Contact:** a form with each problem explained beside its field, a switch to agree to the privacy policy, and the phone and e-mail below it.
+- **Privacy policy** on its own page.
+- **Arabic** at `/ar`, right to left, with a switch in the header that keeps you on the same page.
 
 ## How it is built
 
 - [React 18](https://react.dev) with [Vite](https://vite.dev), [React Router 7](https://reactrouter.com) and [Tailwind CSS 3](https://tailwindcss.com)
 - No backend and no other dependencies
-- Deployed on [Vercel](https://vercel.com)
 
 Some decisions worth knowing:
 
-- **One price list** in `src/lib/estimate.js` describes the services, their options and their prices. `estimate(selection)` is a plain function that returns the lines, the total, the range and the number of weeks; the home page, the estimator, the services page and the case studies all call it.
-- **How the time is worked out:** the longest piece of work sets the pace, and each of the others adds half its own length, because they run alongside it.
-- **The address is the state.** `toQuery` and `fromQuery` turn a selection into `?need=site.pages1.both~brand.guide&rush=1` and back. Each change starts from the address as it is at that moment, so two quick taps cannot overwrite each other.
-- **Both languages share the same pages.** Every text is written once as a pair, `t('Work', 'أعمالنا')`, and the layout uses logical directions (start and end), so nothing is mirrored by hand.
-- **Figures always read left to right**, in Western digits, in both languages.
-- **The case study pictures are drawn in code** (`src/components/Cover.jsx`): one small SVG per kind of project, in each client's colors.
-- **Accessible by default:** real checkboxes and radio buttons behind the styled ones, visible keyboard focus, a status message when the total changes, and the animated total stands still for people who asked for less motion.
+- **Everything the site says about the company is in one file**, `src/lib/company.js`, in both languages. The sections read from it, so a number such as the count of offices cannot say one thing in one place and another elsewhere.
+- **Each section is its own component** in `src/sections/`, and `src/pages/Home.jsx` only lists them in order.
+- **Both languages share the same components.** Every text is written once as a pair, `t('Services', 'الخدمات')`, and the layout uses logical directions (start and end), so nothing is mirrored by hand.
+- **The service pictures are drawn in code** (`src/components/ServiceArt.jsx`), so the page loads no photos.
+- **Accessible by default:** one `h1`, labelled form fields, a real switch for the agreement, visible keyboard focus, and animations that stand still for people who asked for less motion.
 
 ## Run it locally
 
